@@ -8,21 +8,21 @@ namespace Kiralyno
 {
     class Tabla
     {
-        char[,] tomb;
+        char[,] T;
         char UresCella;
         int UresOszlopokSzama;
         int UresSorokSzama;
 
         public Tabla(char ch)
         {
-            tomb = new char[8, 8];
+            T = new char[8, 8];
             UresCella = ch;
 
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    tomb[i, j] = UresCella;
+                    T[i, j] = UresCella;
                 }
             }
         }
@@ -37,7 +37,14 @@ namespace Kiralyno
         }
         public void Megjelenit()
         {
-
+            for (int i = 0; i < 8; i++)
+            {
+                Console.WriteLine();
+                for (int j = 0; j < 8; j++)
+                {
+                    Console.Write("{0,-2}",T[i,j]);
+                }
+            }
         }
         
         public int UresOszlop()
@@ -54,6 +61,12 @@ namespace Kiralyno
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Királynők feladat");
+            Tabla t = new Tabla('#');
+            Console.WriteLine("Üres tábla:");
+            t.Megjelenit();
+
+
             Console.ReadKey();
         }
     }
