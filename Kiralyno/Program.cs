@@ -27,8 +27,21 @@ namespace Kiralyno
             }
         }
 
-        public void Elhelyez()
+        public void Elhelyez(int N)
         {
+            //1.  véletlen helyiertek letrehozasa
+            //    - Random osztaly értékek halmaza:[0,7]
+            //    - Véletlen sor, oszlop kell
+            //    - Elhelyezzük a "K"-t, csak akkor ha üres a cella -> '#'
+
+            Random vel = new Random();
+            int sor = vel.Next(0, 8);
+            int oszlop = vel.Next(0, 8);
+            if (T[sor, oszlop] == '#')
+            {
+                T[sor, oszlop] = 'K';
+            }
+            
 
         }
         public void FajlbaIr()
@@ -65,7 +78,9 @@ namespace Kiralyno
             Tabla t = new Tabla('#');
             Console.WriteLine("Üres tábla:");
             t.Megjelenit();
-
+            t.Elhelyez(1);
+            Console.WriteLine();
+            t.Megjelenit();
 
             Console.ReadKey();
         }
