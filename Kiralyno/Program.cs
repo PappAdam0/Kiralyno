@@ -35,12 +35,18 @@ namespace Kiralyno
             //    - Elhelyezzük a "K"-t, csak akkor ha üres a cella -> '#'
 
             Random vel = new Random();
-            int sor = vel.Next(0, 8);
-            int oszlop = vel.Next(0, 8);
-            if (T[sor, oszlop] == '#')
+
+
+            for (int i = 0; i < vel.Next(0,65); i++)
             {
-                T[sor, oszlop] = 'K';
+                int sor = vel.Next(0, 8);
+                int oszlop = vel.Next(0, 8);
+                if (T[sor, oszlop] == '#')
+                {
+                    T[sor, oszlop] = 'K';
+                }
             }
+           
             
 
         }
