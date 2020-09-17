@@ -68,14 +68,16 @@ namespace Kiralyno
                 }
             }
         }
-        
-        public int UresOszlop()
+
+        public bool UresOszlop(int oszlop)
         {
-            return 0;
+            return true;
+           
         }
-        public int UresSor()
+        public bool UresSor(int sor)
         {
-            return 0;
+            //1 ciklus mindkettőhöz, Ha T[sor,i], T[i,oszlop]
+            return true;
         }
 
     }
