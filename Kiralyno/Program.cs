@@ -43,14 +43,14 @@ namespace Kiralyno
                 int oszlop = vel.Next(0, 8);
                 while (T[sor, oszlop] == 'K')
                 {
-                     sor = vel.Next(0, 8);
-                     oszlop = vel.Next(0, 8);
+                    sor = vel.Next(0, 8);
+                    oszlop = vel.Next(0, 8);
                 }
                 T[sor, oszlop] = 'K';
-               
+
             }
-           
-            
+
+
 
         }
         public void FajlbaIr()
@@ -64,7 +64,7 @@ namespace Kiralyno
                 Console.WriteLine();
                 for (int j = 0; j < 8; j++)
                 {
-                    Console.Write("{0,-3}",T[i,j]);
+                    Console.Write("{0,-3}", T[i, j]);
                 }
             }
         }
@@ -73,16 +73,15 @@ namespace Kiralyno
         {
             bool valasz = true;
 
-            int sz = 0;
 
             for (int i = 0; i < 8; i++)
             {
                 if (T[i, oszlop] == 'K')
                 {
-                    sz++;
+                    valasz = false;
                 }
             }
-            if (sz > 0)
+            if (valasz == false)
             {
                 Console.WriteLine("Van K az oszlopban");
             }
@@ -91,25 +90,24 @@ namespace Kiralyno
                 Console.WriteLine("Nincs");
             }
 
-         
-            return true; ;
-           
+
+            return valasz;
+
         }
         public bool UresSor(int sor)
         {
             //1 ciklus mindkettőhöz, Ha T[sor,i], T[i,oszlop]
             bool valasz = true;
 
-            int sz = 0;
 
             for (int i = 0; i < 8; i++)
             {
                 if (T[sor, i] == 'K')
                 {
-                    sz++;
+                    valasz = false;
                 }
             }
-            if (sz > 0)
+            if (valasz == false)
             {
                 Console.WriteLine("Van K a sorban");
             }
@@ -117,30 +115,32 @@ namespace Kiralyno
             {
                 Console.WriteLine("Nincs");
             }
+
+
             return valasz;
+
         }
-
-    }
-    class Program
-    {
-        static void Main(string[] args)
+        class Program
         {
-            Console.WriteLine("Királynők feladat");
-            Tabla t = new Tabla('#');
-            Console.WriteLine("Üres tábla:");
-            t.Megjelenit();
-            t.Elhelyez(8);
-            Console.WriteLine();
-            t.Megjelenit();
+            static void Main(string[] args)
+            {
+                Console.WriteLine("Királynők feladat");
+                Tabla t = new Tabla('#');
+                Console.WriteLine("Üres tábla:");
+                t.Megjelenit();
+                t.Elhelyez(8);
+                Console.WriteLine();
+                t.Megjelenit();
 
-            Console.WriteLine("\nMelyik oszlop?");
-            int o = int.Parse(Console.ReadLine());
-            t.UresOszlop(o);
-            Console.WriteLine("\nMelyik sor?");
-            int s = int.Parse(Console.ReadLine());
-            t.UresSor(s);
+                Console.WriteLine("\nMelyik oszlop?");
+                int o = int.Parse(Console.ReadLine());
+                t.UresOszlop(o);
+                Console.WriteLine("\nMelyik sor?");
+                int s = int.Parse(Console.ReadLine());
+                t.UresSor(s);
 
-            Console.ReadKey();
+                Console.ReadKey();
+            }
         }
     }
 }
