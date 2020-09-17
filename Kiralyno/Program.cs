@@ -64,7 +64,7 @@ namespace Kiralyno
                 Console.WriteLine();
                 for (int j = 0; j < 8; j++)
                 {
-                    Console.Write("{0,-2}",T[i,j]);
+                    Console.Write("{0,-3}",T[i,j]);
                 }
             }
         }
