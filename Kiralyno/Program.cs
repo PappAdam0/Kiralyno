@@ -71,13 +71,53 @@ namespace Kiralyno
 
         public bool UresOszlop(int oszlop)
         {
-            return true;
+            bool valasz = true;
+
+            int sz = 0;
+
+            for (int i = 0; i < 8; i++)
+            {
+                if (T[i, oszlop] == 'K')
+                {
+                    sz++;
+                }
+            }
+            if (sz > 0)
+            {
+                Console.WriteLine("Van K az oszlopban");
+            }
+            else
+            {
+                Console.WriteLine("Nincs");
+            }
+
+         
+            return true; ;
            
         }
         public bool UresSor(int sor)
         {
             //1 ciklus mindkettőhöz, Ha T[sor,i], T[i,oszlop]
-            return true;
+            bool valasz = true;
+
+            int sz = 0;
+
+            for (int i = 0; i < 8; i++)
+            {
+                if (T[sor, i] == 'K')
+                {
+                    sz++;
+                }
+            }
+            if (sz > 0)
+            {
+                Console.WriteLine("Van K a sorban");
+            }
+            else
+            {
+                Console.WriteLine("Nincs");
+            }
+            return valasz;
         }
 
     }
@@ -93,6 +133,12 @@ namespace Kiralyno
             Console.WriteLine();
             t.Megjelenit();
 
+            Console.WriteLine("\nMelyik oszlop?");
+            int o = int.Parse(Console.ReadLine());
+            t.UresOszlop(o);
+            Console.WriteLine("\nMelyik sor?");
+            int s = int.Parse(Console.ReadLine());
+            t.UresSor(s);
 
             Console.ReadKey();
         }
