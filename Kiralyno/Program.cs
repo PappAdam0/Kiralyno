@@ -91,6 +91,7 @@ namespace Kiralyno
             Console.WriteLine();
             t.Megjelenit();
 
+
             Console.ReadKey();
         }
     }
