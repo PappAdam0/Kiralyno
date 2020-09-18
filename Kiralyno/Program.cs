@@ -71,10 +71,24 @@ namespace Kiralyno
 
         public bool UresOszlop(int oszlop)
         {
-            bool valasz = true;
+            
 
+            int i = 0;
 
-            for (int i = 0; i < 8; i++)
+            while (i <8 && T[i,oszlop] != 'K')
+            {
+                    i++;
+            }
+            if (i < 8)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+            /*for (int i = 0; i < 8; i++)
             {
                 if (T[i, oszlop] == 'K')
                 {
@@ -89,18 +103,17 @@ namespace Kiralyno
             {
                 Console.WriteLine("Nincs");
             }
-
-
-            return valasz;
+            */
+            
 
         }
         public bool UresSor(int sor)
         {
             //1 ciklus mindkettőhöz, Ha T[sor,i], T[i,oszlop]
-            bool valasz = true;
+            //bool valasz = true;
 
 
-            for (int i = 0; i < 8; i++)
+            /*for (int i = 0; i < 8; i++)
             {
                 if (T[sor, i] == 'K')
                 {
@@ -116,9 +129,22 @@ namespace Kiralyno
                 Console.WriteLine("Nincs");
             }
 
+            */
 
-            return valasz;
+            int i = 0;
 
+            while (i < 8 && T[sor, i] != 'K')
+            {
+                i++;
+            }
+            if (i < 8)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         class Program
         {
@@ -134,10 +160,46 @@ namespace Kiralyno
 
                 Console.WriteLine("\nMelyik oszlop?");
                 int o = int.Parse(Console.ReadLine());
-                t.UresOszlop(o);
+                
+                if (t.UresOszlop(o))
+                {
+                    Console.WriteLine("Üres az oszlop");
+                }
+                else
+                {
+                    Console.WriteLine("Nem üres az oszlop");
+                }
+
+
                 Console.WriteLine("\nMelyik sor?");
                 int s = int.Parse(Console.ReadLine());
-                t.UresSor(s);
+                if (t.UresSor(s))
+                {
+                    Console.WriteLine("Üres a sor");
+                }
+                else
+                {
+                    Console.WriteLine("Nem üres a sor");
+                }
+
+                Console.WriteLine("\n8. Feladat: Az üres oszlopok és sorok száma:");
+                int uresSor = 0;
+                int uresOszlop = 0;
+
+                for (int i = 0; i < 8; i++)
+                {
+                    if (t.UresSor(i) == true)
+                    {
+                        uresSor++;
+                    }
+                    if (t.UresOszlop(i) == true)
+                    {
+                        uresOszlop++;
+                    }
+                }
+                Console.WriteLine("Sorok: {0}", uresSor);
+                Console.WriteLine("Oszlopok: {0}",uresOszlop);
+
 
                 Console.ReadKey();
             }
